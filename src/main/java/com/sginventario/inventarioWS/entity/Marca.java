@@ -10,14 +10,9 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,33 +23,23 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
-public class Producto {
-
+public class Marca {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotBlank(message = "El SKU es requerido")
-    @Size(max = 15, message = "El máximo de caracteres del campo es 15")
-    private String sku;
+    @NotBlank(message = "El código es requerido")
+    @Size(max = 10, message = "El máximo de caracteres del campo código es 10")
+    private String codigo;
 
     @NotBlank(message = "El nombre es requerido")
-    @Size(max = 50, message = "El máximo de caracteres del campo es 50")
+    @Size(max = 150, message = "El máximo de caracteres del campo nombre es 150")
     private String nombre;
 
     @Column(nullable = false)
     private Boolean activo;
 
-    @NotNull(message = "El stock es requerido")
-    @Min(value = 0, message = "El stock no puede ser negativo")
-    private Integer stock;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "marca_id", nullable = false)
-    private Marca marca;
-
     @JsonIgnore
-    @OneToMany(mappedBy = "producto")
-    private List<DetalleEntrada> detalleEntradas;
+    @OneToMany(mappedBy = "marca", fetch = FetchType.LAZY)
+    private List<Producto> productos;
 }

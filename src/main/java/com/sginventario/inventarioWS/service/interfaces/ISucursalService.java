@@ -1,4 +1,5 @@
-package com.sginventario.inventarioWS.service;
+package com.sginventario.inventarioWS.service.interfaces;
+
 import com.sginventario.inventarioWS.dto.SucursalDTO;
 import java.util.List;
 

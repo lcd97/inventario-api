@@ -1,6 +1,5 @@
 package com.sginventario.inventarioWS.dto;
 
-import jakarta.persistence.Column;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -19,10 +18,9 @@ public class ProductoDTO {
     @Size(max = 50, message = "El máximo de caracteres del campo es 50")
     private String nombre;
 
-    @Size(max = 50, message = "El máximo de caracteres del campo es 50")
-    private String marca;
+    @NotNull(message = "La marca es requerida")
+    private Integer marcaId;
 
-    @Column(nullable = false)
     private Boolean activo;
 
     @NotNull(message = "El stock es requerido")

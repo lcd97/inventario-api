@@ -8,7 +8,13 @@ import com.sginventario.inventarioWS.entity.Producto;
 
 public interface ProductoRepository extends JpaRepository<Producto, Integer> {
 
-    boolean existsByNombreIgnoreCaseAndMarcaIgnoreCase(String nombre, String marca);
+    boolean existsByNombreIgnoreCaseAndMarca_Id(String nombre, Integer marcaId);
+
+    boolean existsByNombreIgnoreCaseAndMarca_IdAndIdNot(String nombre, Integer marcaId, Integer id);
+
+    boolean existsBySkuAndIdNot(String sku, Integer id);
+
+    boolean existsByMarca_Id(Integer marcaId);
 
     boolean existsBySku(String sku);
 
