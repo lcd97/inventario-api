@@ -3,7 +3,8 @@ package com.sginventario.inventarioWS.service.imp;
 import com.sginventario.inventarioWS.dto.SucursalDTO;
 import com.sginventario.inventarioWS.entity.Sucursal;
 import com.sginventario.inventarioWS.repository.SucursalRepository;
-import com.sginventario.inventarioWS.service.ISucursalService;
+import com.sginventario.inventarioWS.service.interfaces.ISucursalService;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import com.sginventario.inventarioWS.exception.*;
